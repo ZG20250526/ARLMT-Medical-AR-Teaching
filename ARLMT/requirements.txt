@@ -1,0 +1,402 @@
+# ARLMT: Augmented Reality Large Language Model Medical Teaching System
+# Requirements file for reproducible environment setup
+
+# Core ML/AI Libraries
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+accelerate>=0.20.0
+peft>=0.4.0
+bitsandbytes>=0.39.0
+
+# Computer Vision and Image Processing
+opencv-python>=4.8.0
+Pillow>=9.5.0
+scikit-image>=0.20.0
+imageio>=2.28.0
+
+# Scientific Computing
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# Deep Learning Utilities
+einops>=0.6.0
+timm>=0.9.0
+safetensors>=0.3.0
+
+# Data Processing
+jsonlines>=3.1.0
+pyarrow>=12.0.0
+datasets>=2.12.0
+
+# Visualization and Plotting
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.14.0
+
+# AR and 3D Graphics
+pyopengl>=3.1.6
+pygame>=2.5.0
+open3d>=0.17.0
+
+# Medical Imaging (Optional)
+# pydicom>=2.4.0
+# nibabel>=5.1.0
+# SimpleITK>=2.2.0
+
+# Web and API
+requests>=2.31.0
+flask>=2.3.0
+fastapi>=0.100.0
+uvicorn>=0.22.0
+
+# Utilities
+tqdm>=4.65.0
+click>=8.1.0
+pyyaml>=6.0
+toml>=0.10.2
+
+# Logging and Monitoring
+wandb>=0.15.0
+tensorboard>=2.13.0
+
+# Testing and Quality
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0.0
+flake8>=6.0.0
+isort>=5.12.0
+
+# Development Tools
+jupyter>=1.0.0
+ipywidgets>=8.0.0
+
+# Performance Optimization
+numba>=0.57.0
+
+# Audio Processing (for voice feedback)
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# Networking and Communication
+websockets>=11.0.0
+zmq>=0.0.0
+
+# Configuration Management
+hydra-core>=1.3.0
+omegaconf>=2.3.0
+
+# Model Serving
+triton-client>=2.34.0
+
+# Hardware Monitoring
+psutil>=5.9.0
+GPUtil>=1.4.0
+
+# Cryptography and Security
+cryptography>=41.0.0
+
+# File Format Support
+h5py>=3.9.0
+openpyxl>=3.1.0
+
+# Memory Profiling
+memory-profiler>=0.60.0
+
+# Parallel Processing
+joblib>=1.3.0
+
+# Time Series and Statistics
+statsmodels>=0.14.0
+
+# Natural Language Processing
+nltk>=3.8.0
+spacy>=3.6.0
+
+# Gradio for Web Interface (Optional)
+gradio>=3.35.0
+
+# Additional AR Libraries
+# Note: Some AR-specific libraries may require manual installation
+# or specific hardware drivers
+
+# For INMO Air2 Integration
+# inmo-sdk  # Proprietary - contact INMO for access
+
+# Optional: CUDA-specific packages (install separately if using GPU)
+# nvidia-ml-py>=11.495.46
+# cupy-cuda11x>=12.0.0
+
+# Development and Documentation
+sphinx>=7.0.0
+sphinx-rtd-theme>=1.3.0
+myst-parser>=2.0.0
+
+# Code Quality and Security
+bandit>=1.7.0
+safety>=2.3.0
+
+# Environment Management
+python-dotenv>=1.0.0
+
+# Async Support
+aiofiles>=23.0.0
+aiohttp>=3.8.0
+
+# Database (if needed for logging/analytics)
+sqlalchemy>=2.0.0
+alembic>=1.11.0
+
+# Caching
+redis>=4.6.0
+
+# Message Queuing
+celery>=5.3.0
+
+# Monitoring and Alerting
+prometheus-client>=0.17.0
+
+# Configuration Validation
+pydantic>=2.0.0
+
+# CLI Enhancements
+rich>=13.0.0
+typer>=0.9.0
+
+# File Watching (for development)
+watchdog>=3.0.0
+
+# HTTP Client
+httpx>=0.24.0
+
+# JSON Schema Validation
+jsonschema>=4.18.0
+
+# Progress Bars
+rich-progress>=1.0.0
+
+# System Information
+platform>=1.0.8
+
+# Timezone Handling
+pytz>=2023.3
+
+# UUID Generation
+uuid>=1.30
+
+# Regular Expressions
+regex>=2023.6.3
+
+# Hashing
+hashlib>=20081119
+
+# Base64 Encoding
+base64>=0.0.1
+
+# URL Parsing
+urllib3>=2.0.0
+
+# XML Processing
+lxml>=4.9.0
+
+# CSV Processing
+csv>=1.0
+
+# Pickle Support
+pickle5>=0.0.12
+
+# Compression
+gzip>=1.0
+zipfile>=1.0
+
+# Threading
+threading>=1.0
+
+# Multiprocessing
+multiprocessing>=1.0
+
+# Subprocess
+subprocess>=1.0
+
+# Operating System Interface
+os>=1.0
+
+# System-specific Parameters
+sys>=1.0
+
+# Mathematical Functions
+math>=1.0
+
+# Random Number Generation
+random>=1.0
+
+# Date and Time
+datetime>=1.0
+
+# Collections
+collections>=1.0
+
+# Itertools
+itertools>=1.0
+
+# Functional Programming
+functools>=1.0
+
+# Operator Functions
+operator>=1.0
+
+# String Operations
+string>=1.0
+
+# Regular Expression Operations
+re>=1.0
+
+# File and Directory Access
+glob>=1.0
+shutil>=1.0
+
+# Data Persistence
+shelve>=1.0
+
+# Data Compression and Archiving
+tarfile>=1.0
+
+# File Formats
+csv>=1.0
+
+# Internet Protocols and Support
+urllib>=1.0
+
+# Internet Data Handling
+email>=1.0
+
+# Structured Markup Processing Tools
+html>=1.0
+xml>=1.0
+
+# Cryptographic Services
+hashlib>=1.0
+hmac>=1.0
+secrets>=1.0
+
+# Generic Operating System Services
+io>=1.0
+time>=1.0
+argparse>=1.0
+logging>=1.0
+getpass>=1.0
+curses>=1.0
+platform>=1.0
+errno>=1.0
+ctypes>=1.0
+
+# Concurrent Execution
+concurrent>=1.0
+
+# Networking and Interprocess Communication
+socket>=1.0
+ssl>=1.0
+select>=1.0
+selectorselect>=1.0
+asyncio>=1.0
+asyncore>=1.0
+asyncchat>=1.0
+signal>=1.0
+mmap>=1.0
+
+# Internet Protocols and Support
+webbrowser>=1.0
+cgi>=1.0
+cgitb>=1.0
+wsgiref>=1.0
+urllib>=1.0
+http>=1.0
+ftplib>=1.0
+poplib>=1.0
+imaplib>=1.0
+nntplib>=1.0
+smtplib>=1.0
+smtpd>=1.0
+telnetlib>=1.0
+uuid>=1.0
+socketserver>=1.0
+http>=1.0
+xmlrpc>=1.0
+
+# Multimedia Services
+audioop>=1.0
+aifc>=1.0
+sunau>=1.0
+wave>=1.0
+chunk>=1.0
+colorsys>=1.0
+imghdr>=1.0
+sndhdr>=1.0
+ossaudiodev>=1.0
+
+# Internationalization
+gettext>=1.0
+locale>=1.0
+
+# Program Frameworks
+cmd>=1.0
+shlex>=1.0
+
+# Graphical User Interfaces with Tk
+tkinter>=1.0
+
+# Development Tools
+pydoc>=1.0
+doctest>=1.0
+unittest>=1.0
+test>=1.0
+
+# Debugging and Profiling
+bdb>=1.0
+faulthandler>=1.0
+pdb>=1.0
+profile>=1.0
+cProfile>=1.0
+pstats>=1.0
+timeit>=1.0
+trace>=1.0
+tracemalloc>=1.0
+
+# Software Packaging and Distribution
+distutils>=1.0
+ensurepip>=1.0
+venv>=1.0
+zipapp>=1.0
+
+# Python Runtime Services
+sys>=1.0
+sysconfig>=1.0
+builtins>=1.0
+__main__>=1.0
+warnings>=1.0
+dataclasses>=1.0
+contextlib>=1.0
+abc>=1.0
+atexit>=1.0
+traceback>=1.0
+__future__>=1.0
+gc>=1.0
+inspect>=1.0
+site>=1.0
+
+# Custom Modules and Packages
+# Add any custom or proprietary packages here
+
+# Note: Some packages listed above are part of Python's standard library
+# and don't need to be installed via pip. They are included for completeness
+# and documentation purposes.
+
+# For production deployment, consider pinning exact versions:
+# torch==2.0.1
+# transformers==4.30.2
+# etc.
+
+# For development, you might want to use version ranges as shown above
+# to allow for compatible updates while maintaining stability.
