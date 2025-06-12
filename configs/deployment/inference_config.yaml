@@ -1,0 +1,46 @@
+# Inference Configuration for ARLMT
+
+model:
+  model_path: "./models/arlmt_qlora"
+  device: "cuda"
+  torch_dtype: "float16"
+  load_in_8bit: false
+  load_in_4bit: true
+
+generation:
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  do_sample: true
+  num_beams: 1
+  repetition_penalty: 1.1
+  length_penalty: 1.0
+
+ar_interface:
+  device_type: "inmo_air2"
+  resolution: [1920, 1080]
+  refresh_rate: 60
+  field_of_view: 50
+  tracking_enabled: true
+  gesture_recognition: true
+
+performance:
+  max_batch_size: 4
+  max_concurrent_requests: 10
+  timeout_seconds: 30
+  cache_size: 100
+  enable_streaming: true
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins: ["*"]
+  rate_limit: "100/minute"
+  auth_required: false
+
+logging:
+  log_level: "INFO"
+  log_file: "./logs/inference.log"
+  access_log: "./logs/access.log"
+  metrics_enabled: true

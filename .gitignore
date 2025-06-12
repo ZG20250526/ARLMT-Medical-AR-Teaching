@@ -1,0 +1,223 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+PYTHON
+
+# PyTorch
+*.pth
+*.pt
+checkpoints/
+logs/
+runs/
+tensorboard_logs/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Large files (use Git LFS instead)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Model files (use Git LFS)
+*.bin
+*.safetensors
+models/
+weights/
+
+# Data files
+data/raw/
+data/processed/
+*.csv
+*.json
+*.jsonl
+*.json.1
+*.json.2
+
+# Large JSON data files (medical training data)
+llava-med-train/data/alignment/
+llava-med-train/data/instruct/
+
+# Wandb logs and runs
+wandb/
+llava/wandb/
+*.wandb
+
+# Large model files
+*.bin
+*.h5
+clip-vit-large-patch14-336/
+pytorch_model.bin
+tf_model.h5
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+LLaVA-main.zip
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Medical data (ensure no PHI)
+patient_data/
+medical_records/
+phi/
+
+# AR specific
+*.unity
+*.unitypackage
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Assets/AssetStoreTools*
+
+# Documentation build
+_build/
+_static/
+_templates/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Secrets and keys
+*.key
+*.pem
+*.crt
+*.p12
+secrets/
+keys/
+credentials/
+
+# Cache
+.cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Profiling
+.prof
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Node.js (if any frontend components)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package files
+*.deb
+*.rpm
+*.msi
+*.dmg
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Research specific
+experiments/
+results/
+output/
+figures/
+plots/
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+
+# Specific to this project
+ARLMT20250608.pdf
+*.dated_backup
+old_versions/
+*.json.1
+llava-med-train/data/alignment/
+llava-med-train/data/instruct/
+llava-med-train/*.jsonl.1

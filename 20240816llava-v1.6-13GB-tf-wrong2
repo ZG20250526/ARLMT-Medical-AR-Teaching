@@ -1,0 +1,359 @@
+(llava) guoyunfei@tme-GS4840:~/projects/LLaVA-main/llava$ TRANSFORMERS_OFFLINE=1 HF_HUB_OFFLINE=1 . finetune.sh 
+[2024-08-16 14:25:27,930] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:29,271] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-08-16 14:25:29,271] [INFO] [runner.py:571:main] cmd = /home/guoyunfei/.conda/envs/llava/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgNSwgNiwgN119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py --deepspeed /home/guoyunfei/projects/LLaVA-main/scripts/zero2.json --model_name_or_path /data0/GYF/offline_model/liuhaotian/llava-v1.6-mistral-7b --version plain --data_path /data0/GYF/data/llava-med/data/Instruction-Tuning/llava_med_instruct_60k_inline_mention20240816.json --image_folder /data0/GYF/data/llava-med/images --vision_tower /data0/GYF/offline_model/openai/clip-vit-large-patch14 --pretrain_mm_mlp_adapter ./checkpoints/llava-v1.6-7b-13GB-pretrain/mm_projector.bin --mm_vision_select_layer -2 --mm_use_im_start_end False --mm_use_im_patch_token False --bf16 True --output_dir ./checkpoints/llava-v1.6-7b_plain-finetune --num_train_epochs 1 --per_device_train_batch_size 16 --per_device_eval_batch_size 4 --gradient_accumulation_steps 1 --evaluation_strategy no --save_strategy steps --save_steps 50000 --save_total_limit 1 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --logging_steps 1 --tf32 True --model_max_length 2048 --gradient_checkpointing True --dataloader_num_workers 4 --lazy_preprocess True --report_to wandb
+[2024-08-16 14:25:31,425] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:33,159] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]}
+[2024-08-16 14:25:33,159] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=8, node_rank=0
+[2024-08-16 14:25:33,159] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]})
+[2024-08-16 14:25:33,159] [INFO] [launch.py:163:main] dist_world_size=8
+[2024-08-16 14:25:33,159] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+[2024-08-16 14:25:36,675] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:37,229] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:37,523] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:37,627] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:37,787] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:37,855] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-16 14:25:37,867] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:37,897] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:37,935] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-16 14:25:38,234] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-16 14:25:38,770] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-16 14:25:39,092] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-16 14:25:39,230] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-16 14:25:39,282] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-16 14:25:39,397] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-16 14:25:39,413] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-16 14:25:39,413] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|                                                                                        | 0/4 [00:00<?, ?it/s]/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:13<00:00,  3.33s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.86s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.76s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:08<00:00,  2.25s/it]
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:13<00:00,  3.26s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:13<00:00,  3.26s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:13<00:00,  3.33s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:12<00:00,  3.22s/it]
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+Formatting inputs...Skip in lazy mode
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+wandb: Currently logged in as: james20201124 (james20201124-temple-university). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/guoyunfei/projects/LLaVA-main/llava/wandb/run-20240816_142654-ibov9r26
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run misunderstood-bee-36
+wandb: ⭐️ View project at https://wandb.ai/james20201124-temple-university/huggingface
+wandb: 🚀 View run at https://wandb.ai/james20201124-temple-university/huggingface/runs/ibov9r26
+  0%|                                                                                                                 | 0/443 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/23907805_Fig13.jpg'
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+        train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    for step, inputs in enumerate(epoch_iterator):
+current_batch = next(dataloader_iter)  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+        current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/31288858_Fig9.jpg'
+
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/33348664_jcm-09-04074-f005.jpg'
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/31754529_F0004.jpg'
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/35448658_vetsci-09-00160-f007.jpg'
+
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat organ is the mass arising from?'}, {'from': 'gpt', 'value': 'The mass is arising from the uncinate process of the pancreas.'}, {'from': 'human', 'value': 'What is the size of the mass?'}, {'from': 'gpt', 'value': 'The size of the mass is not visible in the image itself, but it is important to note that the size of a mass can be determined by measuring its dimensions on the CT scan. In this case, further information would be needed to provide an accurate measurement.'}, {'from': 'human', 'value': 'Is there any invasion into nearby structures?'}, {'from': 'gpt', 'value': 'Yes, there appears to be an invasion into a nearby structure. The mass is associated with invasion into the superior mesenteric vein. This finding suggests that the mass may be aggressive and could potentially be malignant. Further evaluation and tests would be needed to determine the exact nature of the mass and the appropriate course of treatment.'}]. Error: 
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat does the chest X-ray show?'}, {'from': 'gpt', 'value': 'The chest X-ray shows multiple opacities, which are areas of increased density in the lung tissue. These opacities can be indicative of various conditions, such as infections, inflammation, or other lung abnormalities.'}, {'from': 'human', 'value': 'What could be the cause of these opacities?'}, {'from': 'gpt', 'value': 'In this case, the opacities are likely related to multifocal pneumonia, which is an infection that affects multiple areas of the lung. It is important to note that the cause of pneumonia can vary, and further evaluation by a healthcare professional is necessary to determine the specific cause and appropriate treatment.'}, {'from': 'human', 'value': 'Is there any specific infection mentioned?'}, {'from': 'gpt', 'value': 'Yes, the patient was diagnosed with multifocal pneumonia from COVID-19. COVID-19 is a viral infection caused by the novel coronavirus SARS-CoV-2, which can lead to respiratory symptoms and complications, including pneumonia. It is important for the patient to receive appropriate medical care and follow the guidance of healthcare professionals to manage their condition.'}]. Error: 
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+IndexError: Caught IndexError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 736, in __getitem__
+    data_dict = dict(input_ids=data_dict["input_ids"][0],
+IndexError: list index out of range
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat is the condition shown in the image?'}, {'from': 'gpt', 'value': "The image shows acute hydrocephalus, which is a condition characterized by an abnormal accumulation of cerebrospinal fluid (CSF) within the brain's ventricles. This can lead to increased pressure on the brain and may cause various symptoms, such as headaches, nausea, vomiting, and cognitive difficulties."}, {'from': 'human', 'value': 'What is the difference between the left and right images?'}, {'from': 'gpt', 'value': 'The left image is a pre-contrast computed tomography (CT) scan, while the right image is a post-contrast CT scan. The pre-contrast image is taken before the administration of a contrast agent, which helps to enhance the visibility of certain structures within the body. The post-contrast image is taken after the administration of the contrast agent, which can help to better visualize and differentiate between various tissues and structures, such as blood vessels, tumors, and areas of inflammation.'}, {'from': 'human', 'value': 'Is there any lesion visible in the image?'}, {'from': 'gpt', 'value': 'Yes, there is an obstructing lesion visible in the image. It is located at the foramen of Monro and extends more towards the left ventricle. The foramen of Monro is a small opening that connects the lateral ventricles to the third ventricle in the brain, allowing the flow of cerebrospinal fluid. An obstructing lesion in this area can cause a blockage of the normal flow of cerebrospinal fluid, leading to the development of hydrocephalus.'}]. Error: 
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/21390238_pone-0017228-g004.jpg'
+
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat is the difference between the blue and red traces?'}, {'from': 'gpt', 'value': 'The blue traces represent trials in darkness without visual fixation, while the red traces represent trials where the subject enters the MRI in darkness, lights are turned on for visual fixation, and then turned off before exiting from the MRI.'}, {'from': 'human', 'value': 'What is the slow-phase eye velocity?'}, {'from': 'gpt', 'value': 'Slow-phase eye velocity (SPV) is a measure of the speed at which the eyes move during the slow phase of nystagmus. Nystagmus is an involuntary, rhythmic eye movement that can occur in various conditions, such as vestibular disorders or neurological issues. The slow phase of nystagmus is when the eyes drift slowly in one direction, followed by a quick, corrective movement in the opposite direction, known as the fast phase. The slow-phase eye velocity helps to quantify the speed of the eye movement during the slow phase.'}, {'from': 'human', 'value': 'What happens to the nystagmus when visual fixation is applied?'}, {'from': 'gpt', 'value': 'When visual fixation is applied, the spontaneous nystagmus that had been observed in darkness can be suppressed. In the context of the figure, the red traces show that the slow-phase velocity of the nystagmus is reduced to a lower value when visual fixation is used. This indicates that the subjects are able to control and suppress the involuntary eye movements when they have a visual reference point to focus on.'}]. Error: 
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat is the purpose of this MRI image?'}, {'from': 'gpt', 'value': 'The purpose of this sagittal T1-weighted MRI image is to assess bone marrow edema. Bone marrow edema refers to the presence of excess fluid within the bone marrow, which can be caused by various conditions such as inflammation, injury, or disease. T1-weighted MRI images are often used as an initial sequence to evaluate bone marrow edema, as they can provide valuable information about the distribution and extent of the fluid accumulation.'}, {'from': 'human', 'value': 'What can you say about the orientation of the image?'}, {'from': 'gpt', 'value': 'The image is in the sagittal orientation. Sagittal images are taken in a plane that divides the body into left and right parts. This orientation allows for a side view of the structures being imaged, which can be helpful in visualizing and assessing the anatomy and any potential abnormalities.'}, {'from': 'human', 'value': 'What kind of information can be obtained from T1-weighted MRI images?'}, {'from': 'gpt', 'value': 'T1-weighted MRI images provide information about the tissue relaxation times, which can help differentiate between various types of tissues and structures within the body. In general, T1-weighted images have a higher signal intensity for fat and a lower signal intensity for water. This contrast allows for better visualization of anatomical structures, such as muscles, bones, and organs. In the context of bone marrow edema assessment, T1-weighted images can help identify areas of fluid accumulation within the bone marrow, as well as provide information about the distribution and extent of the edema. Additionally, T1-weighted images can be useful in detecting and characterizing various pathological conditions, such as tumors, inflammation, and degenerative diseases.'}]. Error: 
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat is the main finding in the image?'}, {'from': 'gpt', 'value': 'The main finding in the image is the significant enlargement and enhancement of the left iliacus muscle compared to the right iliacus muscle.'}, {'from': 'human', 'value': 'What type of MRI view is shown?'}, {'from': 'gpt', 'value': 'The image shows a coronal view of a pelvic MRI.'}, {'from': 'human', 'value': 'Is there any edema present?'}, {'from': 'gpt', 'value': 'There is edema ventral to the psoas and iliacus muscles bilaterally. however, the image itself focuses on the enlargement and enhancement of the left iliacus muscle compared to the right. to assess the presence of edema, one would need to examine the appropriate mri images that show the edema in relation to the psoas and iliacus muscles.'}]. Error: 
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+IndexError: Caught IndexError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 736, in __getitem__
+    data_dict = dict(input_ids=data_dict["input_ids"][0],
+IndexError: list index out of range
+
+[2024-08-16 14:27:09,276] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1162379
+[2024-08-16 14:27:10,313] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1162380
+[2024-08-16 14:27:10,345] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1162381
+[2024-08-16 14:27:10,371] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1162382
+[2024-08-16 14:27:10,372] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1162383
+[2024-08-16 14:27:10,407] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1162384
+[2024-08-16 14:27:10,437] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1162385
+[2024-08-16 14:27:10,463] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1162386
+[2024-08-16 14:27:10,493] [ERROR] [launch.py:321:sigkill_handler] ['/home/guoyunfei/.conda/envs/llava/bin/python', '-u', '/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py', '--local_rank=7', '--deepspeed', '/home/guoyunfei/projects/LLaVA-main/scripts/zero2.json', '--model_name_or_path', '/data0/GYF/offline_model/liuhaotian/llava-v1.6-mistral-7b', '--version', 'plain', '--data_path', '/data0/GYF/data/llava-med/data/Instruction-Tuning/llava_med_instruct_60k_inline_mention20240816.json', '--image_folder', '/data0/GYF/data/llava-med/images', '--vision_tower', '/data0/GYF/offline_model/openai/clip-vit-large-patch14', '--pretrain_mm_mlp_adapter', './checkpoints/llava-v1.6-7b-13GB-pretrain/mm_projector.bin', '--mm_vision_select_layer', '-2', '--mm_use_im_start_end', 'False', '--mm_use_im_patch_token', 'False', '--bf16', 'True', '--output_dir', './checkpoints/llava-v1.6-7b_plain-finetune', '--num_train_epochs', '1', '--per_device_train_batch_size', '16', '--per_device_eval_batch_size', '4', '--gradient_accumulation_steps', '1', '--evaluation_strategy', 'no', '--save_strategy', 'steps', '--save_steps', '50000', '--save_total_limit', '1', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'cosine', '--logging_steps', '1', '--tf32', 'True', '--model_max_length', '2048', '--gradient_checkpointing', 'True', '--dataloader_num_workers', '4', '--lazy_preprocess', 'True', '--report_to', 'wandb'] exits with return code = 1
+

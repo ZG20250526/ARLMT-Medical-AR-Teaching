@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  arlmt-dev:
+    build: .
+    container_name: arlmt-development
+    volumes:
+      - .:/app
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+      - "6006:6006"  # TensorBoard
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONPATH=/app/src
+    runtime: nvidia
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  arlmt-training:
+    build: .
+    container_name: arlmt-training
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./configs:/app/configs
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONPATH=/app/src
+    runtime: nvidia
+    command: python3 scripts/training/train_qlora.py --config configs/training/qlora_config.yaml
+
+  arlmt-inference:
+    build: .
+    container_name: arlmt-inference
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONPATH=/app/src
+    runtime: nvidia
+    command: python3 src/arlmt_core/inference_server.py
+
+  tensorboard:
+    build: .
+    container_name: arlmt-tensorboard
+    volumes:
+      - ./logs:/app/logs
+    ports:
+      - "6006:6006"
+    command: tensorboard --logdir=/app/logs --host=0.0.0.0 --port=6006

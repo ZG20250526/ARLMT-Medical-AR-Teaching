@@ -1,0 +1,591 @@
+(llava) guoyunfei@tme-GS4840:~/projects/LLaVA-main/llava$ TRANSFORMERS_OFFLINE=1 HF_HUB_OFFLINE=1 . finetune.sh 
+[2024-08-28 14:05:21,630] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:23,610] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-08-28 14:05:23,611] [INFO] [runner.py:571:main] cmd = /home/guoyunfei/.conda/envs/llava/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgNSwgNiwgN119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py --deepspeed /home/guoyunfei/projects/LLaVA-main/scripts/zero2.json --model_name_or_path /data0/GYF/offline_model/liuhaotian/llava-v1.6-mistral-7b --version plain --data_path /data0/GYF/data/llava-med/data/Instruction-Tuning/llava_med_instruct_60k_inline_mention2024081901.json --image_folder /data0/GYF/data/llava-med/images --vision_tower /data0/GYF/offline_model/openai/clip-vit-large-patch14-336 --pretrain_mm_mlp_adapter ./checkpoints/llava-v1.6-7b-13GB-pretrain/mm_projector.bin --mm_vision_select_layer -2 --mm_use_im_start_end False --mm_use_im_patch_token False --bf16 True --output_dir ./checkpoints/llava-v1.6-7b_plain-finetune --num_train_epochs 1 --per_device_train_batch_size 16 --per_device_eval_batch_size 4 --gradient_accumulation_steps 1 --evaluation_strategy no --save_strategy steps --save_steps 50000 --save_total_limit 1 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --logging_steps 1 --tf32 True --model_max_length 2048 --gradient_checkpointing True --dataloader_num_workers 4 --lazy_preprocess True --report_to wandb
+[2024-08-28 14:05:26,559] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:28,331] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]}
+[2024-08-28 14:05:28,331] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=8, node_rank=0
+[2024-08-28 14:05:28,331] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]})
+[2024-08-28 14:05:28,331] [INFO] [launch.py:163:main] dist_world_size=8
+[2024-08-28 14:05:28,331] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+[2024-08-28 14:05:32,425] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:32,456] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:32,824] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:33,086] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:33,232] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:33,257] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:33,319] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:33,354] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-28 14:05:33,794] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-28 14:05:33,892] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-28 14:05:34,459] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-28 14:05:34,629] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-28 14:05:34,906] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-28 14:05:35,167] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-28 14:05:35,167] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-08-28 14:05:35,303] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-28 14:05:35,401] [INFO] [comm.py:637:init_distributed] cdb=None
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are using a model of type llava_mistral to instantiate a model of type llava_llama. This is not supported for all configurations of models and can yield errors.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|████████████████████████████████████████                                        | 2/4 [00:06<00:06,  3.22s/it]/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:14<00:00,  3.55s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:10<00:00,  2.56s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:07<00:00,  1.89s/it]
+Loading checkpoint shards:  50%|████████████████████████████████████████                                        | 2/4 [00:05<00:05,  2.84s/it]openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+WARNING:root:Loading data...
+WARNING:root:Formatting inputs ... Skip in lazy mode
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+WARNING:root:Loading data...
+WARNING:root:Formatting inputs ... Skip in lazy mode
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.80s/it]
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+WARNING:root:Loading data...
+WARNING:root:Formatting inputs ... Skip in lazy mode
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  3.00s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:12<00:00,  3.00s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:11<00:00,  2.98s/it]
+Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████| 4/4 [00:12<00:00,  3.03s/it]
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+WARNING:root:Loading data...
+WARNING:root:Formatting inputs ... Skip in lazy mode
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+WARNING:root:Loading data...
+WARNING:root:Formatting inputs ... Skip in lazy mode
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+WARNING:root:Loading data...
+WARNING:root:Formatting inputs ... Skip in lazy mode
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+WARNING:root:Loading data...
+WARNING:root:Formatting inputs ... Skip in lazy mode
+openai/clip-vit-large-patch14-336 is already loaded, `load_model` called again, skipping.
+WARNING:root:Loading data...
+WARNING:root:Formatting inputs ... Skip in lazy mode
+wandb: Currently logged in as: james20201124 (james20201124-temple-university). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/guoyunfei/projects/LLaVA-main/llava/wandb/run-20240828_140655-wuz6o5t5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run youthful-dream-74
+wandb: ⭐️ View project at https://wandb.ai/james20201124-temple-university/huggingface
+wandb: 🚀 View run at https://wandb.ai/james20201124-temple-university/huggingface/runs/wuz6o5t5
+  0%|                                                                                                                  | 0/72 [00:00<?, ?it/s]WARNING:root:Image size (725, 350) does not match expected size (336, 336)
+WARNING:root:Image size (751, 479) does not match expected size (336, 336)
+WARNING:root:Image size (600, 600) does not match expected size (336, 336)
+WARNING:root:Image size (775, 1244) does not match expected size (336, 336)
+WARNING:root:Image size (784, 428) does not match expected size (336, 336)
+WARNING:root:Image size (600, 263) does not match expected size (336, 336)
+WARNING:root:Image size (500, 345) does not match expected size (336, 336)
+WARNING:root:Image size (644, 444) does not match expected size (336, 336)
+WARNING:root:Image size (709, 425) does not match expected size (336, 336)
+WARNING:root:Image size (513, 385) does not match expected size (336, 336)
+WARNING:root:Image size (769, 579) does not match expected size (336, 336)
+WARNING:root:Image size (701, 522) does not match expected size (336, 336)
+WARNING:root:Image size (766, 493) does not match expected size (336, 336)
+WARNING:root:Image size (720, 792) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (798, 350) does not match expected size (336, 336)
+WARNING:root:Image size (669, 493) does not match expected size (336, 336)
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 1140, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+ValueError: WARNING:root:Image size (670, 574) does not match expected size (336, 336)
+Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 880, in __getitem__
+    raise ValueError("image_token_len should be greater than 0")
+ValueError: image_token_len should be greater than 0
+
+WARNING:root:Image size (708, 541) does not match expected size (336, 336)
+WARNING:root:Image size (750, 747) does not match expected size (336, 336)
+WARNING:root:Image size (600, 421) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (800, 675) does not match expected size (336, 336)
+WARNING:root:Image size (600, 816) does not match expected size (336, 336)
+WARNING:root:Image size (672, 954) does not match expected size (336, 336)
+WARNING:root:Image size (725, 490) does not match expected size (336, 336)
+WARNING:root:Image size (600, 441) does not match expected size (336, 336)
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 1140, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 880, in __getitem__
+    raise ValueError("image_token_len should be greater than 0")
+ValueError: image_token_len should be greater than 0
+
+Changed Image Size: Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:   torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size: Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+ torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (711, 698) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 1140, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+Changed Image Size:  torch.Size([3, 336, 336])WARNING:root:Image size (667, 806) does not match expected size (336, 336)
+    data = self._next_data()
+
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+    ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+WARNING:root:Image size (598, 445) does not match expected size (336, 336)
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 880, in __getitem__
+    raise ValueError("image_token_len should be greater than 0")
+ValueError: image_token_len should be greater than 0
+
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (793, 491) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (714, 370) does not match expected size (336, 336)
+WARNING:root:Image size (476, 469) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size: WARNING:root:Image size (750, 878) does not match expected size (336, 336)
+ torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (669, 587) does not match expected size (336, 336)
+WARNING:root:Image size (658, 275) does not match expected size (336, 336)
+WARNING:root:Image size (600, 247) does not match expected size (336, 336)
+WARNING:root:Image size (669, 373) does not match expected size (336, 336)
+WARNING:root:Image size (669, 784) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])Changed Image Size: 
+image-token-len:   0
+torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (800, 600) does not match expected size (336, 336)
+WARNING:root:Image size (750, 750) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+WARNING:root:Image size (502, 204) does not match expected size (336, 336)
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 1140, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+Changed Image Size:      for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+torch.Size([3, 336, 336])
+image-token-len:  0
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+WARNING:root:Image size (274, 295) does not match expected size (336, 336)
+WARNING:root:Image size (731, 591) does not match expected size (336, 336)
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 880, in __getitem__
+    raise ValueError("image_token_len should be greater than 0")
+ValueError: image_token_len should be greater than 0
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 1140, in train
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+Changed Image Size:  Changed Image Size: torch.Size([3, 336, 336])
+ image-token-len:  0torch.Size([3, 336, 336])
+
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 880, in __getitem__
+    raise ValueError("image_token_len should be greater than 0")
+ValueError: image_token_len should be greater than 0
+
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 1140, in train
+WARNING:root:Image size (771, 617) does not match expected size (336, 336)
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (673, 702) does not match expected size (336, 336)
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+WARNING:root:Image size (768, 563) does not match expected size (336, 336)
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 880, in __getitem__
+    raise ValueError("image_token_len should be greater than 0")
+ValueError: image_token_len should be greater than 0
+
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (594, 341) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+Changed Image Size:  torch.Size([3, 336, 336])
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (487, 413) does not match expected size (336, 336)
+WARNING:root:Image size (600, 600) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (696, 331) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (800, 431) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  WARNING:root:Image size (600, 318) does not match expected size (336, 336)
+0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (513, 511) does not match expected size (336, 336)
+WARNING:root:Image size (570, 426) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (650, 510) does not match expected size (336, 336)
+WARNING:root:Image size (671, 619) does not match expected size (336, 336)
+WARNING:root:Image size (752, 588) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (502, 597) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+WARNING:root:Image size (786, 587) does not match expected size (336, 336)
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+WARNING:root:Image size (358, 321) does not match expected size (336, 336)
+WARNING:root:Image size (773, 454) does not match expected size (336, 336)
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 1140, in train
+WARNING:root:Image size (666, 372) does not match expected size (336, 336)
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (754, 625) does not match expected size (336, 336)
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+Changed Image Size:      current_batch = next(dataloader_iter)
+torch.Size([3, 336, 336])  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+
+image-token-len:  0
+WARNING:root:Image size (750, 752) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 880, in __getitem__
+    raise ValueError("image_token_len should be greater than 0")
+ValueError: image_token_len should be greater than 0
+
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (708, 350) does not match expected size (336, 336)
+WARNING:root:Image size (490, 290) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+WARNING:root:Image size (3892, 1450) does not match expected size (336, 336)
+Changed Image Size:  torch.Size([3, 336, 336])
+image-token-len:  0
+ERROR:root:image_token_len is zero or negative, get value:0 with image shape : torch.Size([3, 336, 336])
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 1140, in train
+    WARNING:root:Image size (775, 204) does not match expected size (336, 336)
+trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+ValueError: Caught ValueError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train20240827.py", line 880, in __getitem__
+    raise ValueError("image_token_len should be greater than 0")
+ValueError: image_token_len should be greater than 0
+
+[2024-08-28 14:07:10,448] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2125711
+[2024-08-28 14:07:11,412] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2125712
+[2024-08-28 14:07:11,445] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2125713
+[2024-08-28 14:07:11,473] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2125714
+[2024-08-28 14:07:11,500] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2125715
+[2024-08-28 14:07:11,530] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2125716
+[2024-08-28 14:07:11,557] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2125717
+[2024-08-28 14:07:11,590] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2125718
+[2024-08-28 14:07:11,590] [ERROR] [launch.py:321:sigkill_handler] ['/home/guoyunfei/.conda/envs/llava/bin/python', '-u', '/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py', '--local_rank=7', '--deepspeed', '/home/guoyunfei/projects/LLaVA-main/scripts/zero2.json', '--model_name_or_path', '/data0/GYF/offline_model/liuhaotian/llava-v1.6-mistral-7b', '--version', 'plain', '--data_path', '/data0/GYF/data/llava-med/data/Instruction-Tuning/llava_med_instruct_60k_inline_mention2024081901.json', '--image_folder', '/data0/GYF/data/llava-med/images', '--vision_tower', '/data0/GYF/offline_model/openai/clip-vit-large-patch14-336', '--pretrain_mm_mlp_adapter', './checkpoints/llava-v1.6-7b-13GB-pretrain/mm_projector.bin', '--mm_vision_select_layer', '-2', '--mm_use_im_start_end', 'False', '--mm_use_im_patch_token', 'False', '--bf16', 'True', '--output_dir', './checkpoints/llava-v1.6-7b_plain-finetune', '--num_train_epochs', '1', '--per_device_train_batch_size', '16', '--per_device_eval_batch_size', '4', '--gradient_accumulation_steps', '1', '--evaluation_strategy', 'no', '--save_strategy', 'steps', '--save_steps', '50000', '--save_total_limit', '1', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'cosine', '--logging_steps', '1', '--tf32', 'True', '--model_max_length', '2048', '--gradient_checkpointing', 'True', '--dataloader_num_workers', '4', '--lazy_preprocess', 'True', '--report_to', 'wandb'] exits with return code = 1
+

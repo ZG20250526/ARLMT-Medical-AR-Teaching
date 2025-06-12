@@ -1,0 +1,266 @@
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/32211974_Fig4.jpg'
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/33294156_f2.jpg'
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/34307615_F3.jpg'
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/25217878_fig0010.jpg'
+
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+Traceback (most recent call last):
+      File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    return self._process_data(data)
+      File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    train(attn_implementation="flash_attention_2")trainer.train()
+
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+        trainer.train()raise exception
+
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+FileNotFoundError:     Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/25493139_f2-wjem-15-876.jpg'
+
+return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/21966292_fig3.jpg'
+
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 708, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/PIL/Image.py", line 3431, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/data0/GYF/data/llava-med/images/30081867_Fig1.jpg'
+
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat is the purpose of the hematoxylin-eosin staining?'}, {'from': 'gpt', 'value': 'Hematoxylin and eosin (H&E) staining is a widely used technique in histology and pathology for visualizing the structure and morphology of tissues and cells. Hematoxylin stains the cell nuclei blue, while eosin stains the cytoplasm and extracellular matrix pink. This staining method provides good contrast between different cellular components, making it easier to identify and evaluate the overall organization, structure, and any potential abnormalities in the tissue sample.'}, {'from': 'human', 'value': 'What are the differences between the hippocampal tissue in the different groups?'}, {'from': 'gpt', 'value': 'In the image, there are four groups: sham, IP (ischemic preconditioning), Isch (ischemia), and IP + Isch. The differences between the hippocampal tissues in these groups are as follows:\n\n1. Sham and IP groups: No obvious pathological abnormalities are observable in the hippocampal CA1-3 and DG (dentate gyrus) regions. The tissue appears healthy and normal.\n\n2. Isch group: Marked morphological changes are visible in the hippocampus, especially in the CA1-3 region. Neuronal cell loss, nuclear shrinkage, and dark staining of neurons are observed, indicating damage due to ischemia.\n\n3. IP + Isch group: Fewer damaged neurons and more normal neurons are present in the CA1-3 and DG regions compared to the Isch group. This suggests that ischemic preconditioning has provided some level of protection against the damage caused by ischemia.\n\nThe image demonstrates the potential protective effects of ischemic preconditioning on the hippocampal tissue following global cerebral ischemia in mice.'}]. Error: 
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat type of aneurysm is shown in the image?'}, {'from': 'gpt', 'value': "The image shows a true aneurysm, which is characterized by the involvement of all arterial layers in the aneurysm's wall."}, {'from': 'human', 'value': 'What is the magnification level?'}, {'from': 'gpt', 'value': 'The magnification level of the image is 2x.'}, {'from': 'human', 'value': 'What staining technique was used?'}, {'from': 'gpt', 'value': 'The staining technique used in this image is Hematoxylin and Eosin (H&E) staining. This is a common staining method used in histology to visualize the structure of tissues and cells.'}]. Error: 
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat is the purpose of the follow-up MRI?'}, {'from': 'gpt', 'value': "The purpose of the follow-up MRI is to assess the changes in the patient's condition after treatment. It helps to evaluate the effectiveness of the treatment and monitor the progress of the patient's recovery."}, {'from': 'human', 'value': 'What improvements can be seen in the image?'}, {'from': 'gpt', 'value': "The follow-up MRI image shows decreased swelling and contrast enhancements of the sciatic and femoral nerves. This indicates that the treatment has had a positive effect on the patient's condition, as the inflammation and swelling of the nerves have been reduced."}, {'from': 'human', 'value': 'What are the arrows and arrowheads pointing to?'}, {'from': 'gpt', 'value': "The arrow in the image is pointing to the sciatic nerve, while the arrowhead is pointing to the femoral nerve. Both of these nerves show decreased swelling and contrast enhancements after treatment, indicating an improvement in the patient's condition."}]. Error: 
+ERROR:root:Assertion error for source: [{'from': 'human', 'value': '<image>\nWhat part of the brain is shown in the image?'}, {'from': 'gpt', 'value': 'The image shows the left perimesencephalic cistern, which is a region in the brain near the midbrain and pons.'}, {'from': 'human', 'value': 'What is the MRI sequence used?'}, {'from': 'gpt', 'value': 'The MRI sequence used in this image is the FLAIR (Fluid-Attenuated Inversion Recovery) sequence.'}, {'from': 'human', 'value': 'What does the high signal indicate?'}, {'from': 'gpt', 'value': 'The high signal in the left perimesencephalic cistern on the FLAIR sequence indicates the presence of a late subacute hemorrhage. This suggests that there is free (extracellular) methemoglobin in the area, which is a product of hemoglobin breakdown and is typically associated with hemorrhagic events.'}]. Error: 
+Traceback (most recent call last):
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 978, in train
+    trainer.train()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+IndexError: Caught IndexError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/.conda/envs/llava/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/guoyunfei/projects/LLaVA-main/llava/train/train.py", line 736, in __getitem__
+    data_dict = dict(input_ids=data_dict["input_ids"][0],
+IndexError: list index out of range
+
