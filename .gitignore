@@ -106,6 +106,12 @@ tf_model.h5
 2024*
 LLaVA-main.zip
 
+# Ignore specific folders and files as requested
+llava-med-train/
+llava/
+ARLMT20250608.tex
+qlora-20250527
+
 # Logs
 *.log
 logs/
