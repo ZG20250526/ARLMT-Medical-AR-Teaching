@@ -101,6 +101,9 @@ tf_model.h5
 *.tar.gz
 *.rar
 *.7z
+
+# Files starting with 2024
+2024*
 LLaVA-main.zip
 
 # Logs
