@@ -155,17 +155,11 @@ python eval/measure_latency.py --iterations 1000
 
 ## Hardware Requirements
 
-### Minimum Requirements
-- **CPU**: Intel i5-8400 or AMD Ryzen 5 2600
-- **GPU**: NVIDIA GTX 1060 6GB or equivalent
-- **RAM**: 8GB DDR4
-- **Storage**: 50GB available space
-
 ### Recommended Requirements
-- **CPU**: Intel i7-10700K or AMD Ryzen 7 3700X
+- **CPU**: Intel i7-10900X or higher 
 - **GPU**: NVIDIA RTX 3070 8GB or higher
-- **RAM**: 16GB DDR4
-- **Storage**: 100GB SSD
+- **RAM**: 128GB DDR4
+- **Storage**: 1TB SSD
 
 ### AR Device Compatibility
 - **Primary**: INMO Air2 AR Glasses
@@ -196,8 +190,8 @@ If you use ARLMT in your research, please cite our paper:
 
 ```bibtex
 @article{arlmt2025,
-  title={Application of Augmented Reality System Based on LLaVA in Medical Teaching and QLoRA Fine-tuning},
-  author={Cat and Dog},
+  title={Research on the application of LLaVA model based on Q-LoRA fine-tuning in medical teaching},
+  author={Shiling Zhou and Fengmei Qin},
   journal={PLOS ONE},
   year={2025},
   volume={XX},
@@ -239,7 +233,7 @@ All source code is available in this repository under the MIT license. The code 
 
 ## Funding
 
-This research was supported by [Grant Information - to be added based on actual funding sources].
+The General Project of the 2024 Special Education Reform Research of the Chongqing Education Science Planning Project(Grant No. K24ZG3330238)
 
 ---
 
