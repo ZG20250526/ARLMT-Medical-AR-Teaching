@@ -16,16 +16,6 @@ The Augmented Reality Large Language Model Medical Teaching System (ARLMT) integ
 - **AR Integration**: Seamless deployment on INMO Air2 AR glasses
 - **Medical Specialization**: Fine-tuned on medical datasets for biomedical applications
 
-## System Architecture
-
-```
-ARLMT System
-├── AR Interface Layer (INMO Air2 Glasses)
-├── Computer Vision Module (Real-time Scene Capture)
-├── LLaVA-Med Model (QLoRA Fine-tuned)
-├── Medical Knowledge Base
-└── Feedback Generation System
-```
 
 ## Installation
 
@@ -33,8 +23,6 @@ ARLMT System
 
 - Python 3.8 or higher
 - CUDA 11.8 or higher (for GPU acceleration)
-- 8GB+ RAM (16GB+ recommended)
-- INMO Air2 AR glasses (for full AR functionality)
 
 ### Environment Setup
 
@@ -128,8 +116,7 @@ Due to privacy regulations and ethical considerations, medical datasets are avai
 |--------|---------------|----------------|-------------|
 | Diagnostic Accuracy | 98.3% | 93.1% | +5.2% |
 | Response Time | 1.009s | 1.176s | +14.2% |
-| Memory Usage | 5.1GB | 15.2GB | -66.4% |
-| Energy Efficiency | 2.3W | 8.7W | -73.6% |
+
 
 ## Evaluation
 
@@ -157,7 +144,7 @@ python eval/measure_latency.py --iterations 1000
 
 ### Recommended Requirements
 - **CPU**: Intel i7-10900X or higher 
-- **GPU**: NVIDIA RTX 3070 8GB or higher
+- **GPU**: NVIDIA RTX 3090 24GB or higher
 - **RAM**: 128GB DDR4
 - **Storage**: 1TB SSD
 
@@ -213,9 +200,9 @@ The datasets supporting the conclusions of this article are available through co
 
 All source code is available in this repository under the MIT license. The code is designed to be reproducible and includes:
 
-- Complete training scripts
+- Training scripts
 - Evaluation benchmarks
-- AR integration modules
+- AR device access modules
 - Documentation and examples
 
 ## Acknowledgments
@@ -227,9 +214,8 @@ All source code is available in this repository under the MIT license. The code 
 
 ## Contact
 
-- **Corresponding Author**: Dog (3180100017@caa.edu.cn)
+- **Corresponding Author**: Shiling Zhou (3180100017@caa.edu.cn)
 - **Institution**: School of Big Data and Information Industry, CCMC, Chongqing, China
-- **Project Website**: [https://arlmt-project.github.io](https://arlmt-project.github.io)
 
 ## Funding
 
