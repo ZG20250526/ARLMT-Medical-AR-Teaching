@@ -28,7 +28,7 @@ The Augmented Reality Large Language Model Medical Teaching System (ARLMT) integ
 
 ```bash
 # Clone the repository
-git clone https://github.com/YourUsername/ARLMT.git
+git clone https://github.com/ZG20250526/ARLMT-Medical-AR-Teaching.git
 cd ARLMT
 
 # Create virtual environment
@@ -52,46 +52,6 @@ python scripts/download_models.py
 python scripts/apply_qlora.py --config configs/qlora_config.yaml
 ```
 
-## Quick Start
-
-### Basic Usage
-
-```python
-from arlmt import ARLMTSystem
-
-# Initialize the system
-arlmt = ARLMTSystem(
-    model_path="models/llava_med_qlora",
-    ar_device="inmo_air2"
-)
-
-# Start AR medical teaching session
-arlmt.start_session()
-
-# Process medical image with AR overlay
-result = arlmt.process_medical_image(
-    image_path="data/sample_xray.jpg",
-    question="What abnormalities do you observe?"
-)
-
-print(f"Diagnosis: {result['diagnosis']}")
-print(f"Confidence: {result['confidence']}")
-print(f"Response Time: {result['response_time']}s")
-```
-
-### AR Glasses Integration
-
-```python
-# Connect to INMO Air2 glasses
-arlmt.connect_ar_device()
-
-# Enable real-time medical scene analysis
-arlmt.enable_realtime_analysis(
-    overlay_annotations=True,
-    voice_feedback=True,
-    haptic_feedback=False
-)
-```
 
 ## Dataset
 
